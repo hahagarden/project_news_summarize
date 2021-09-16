@@ -13,11 +13,10 @@ def get_soup_obj(url):
 
     return soup
 
-
 default_img = "https://search.naver.com/search.naver?where=image&sm=tab_jum&query=naver#"
 for sid in ['100', '101', '102']:
     # 해당 분야 상위 뉴스 목록 주소
-    sec_url = "https://news.naver.com/main/list.nhn?mode=LSD&mid=sec" + "&sid1=" + sid
+    sec_url = "https://news.naver.com/main/list.nhn?mode=LSD&mid=sec&sid1=" + sid
     print("section url : ", sec_url)
 
     # 해당 분야 상위 뉴스 HTML 가져오기
@@ -35,3 +34,4 @@ for sid in ['100', '101', '102']:
             "image_url": li.img.attrs.get('src') if li.img else default_img
         }
         print(news_info)
+
